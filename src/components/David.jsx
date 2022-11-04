@@ -30,7 +30,7 @@ const DavidGraffitiShaderMaterial = shaderMaterial(
 		uTime: 0,
 		lightPos: new THREE.Vector3(),
 		graffitiTexture: new THREE.TextureLoader().load(graffitiTexture),
-		cameraPosition: new THREE.Vector3(),
+		cameraPos: new THREE.Vector3(),
 	},
 	VibrantVertex,
 	VibrantFragment
@@ -51,7 +51,7 @@ export function David(props) {
 
 	useFrame((state, delta) => {
 		davidGraffitiShaderMaterialRef.current.uTime += delta;
-		davidGraffitiShaderMaterialRef.current.cameraPosition = camera.position;
+		davidGraffitiShaderMaterialRef.current.cameraPos = camera.position;
 	});
 
 	const { lightPos } = { ...props };

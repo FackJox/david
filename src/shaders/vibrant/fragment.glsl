@@ -163,7 +163,7 @@ void main() {
     float phi = acos(vNormal.y);
     float angle = atan(vNormal.x, vNormal.z);
     vec2 newFakeUv = vec2((angle + PI)/(3.0 * PI), phi / PI); 
-    newFakeUv = fract(newFakeUv + vec2(uTime/30.0, uTime/30.0));
+    newFakeUv = fract(newFakeUv + vec2(uTime/(30.0 + sin(cameraPos.x * 0.01) * 30.0), uTime/(30.0 + sin(cameraPos.x * 0.01) * 30.0)));
 
     //     float fresnel = dot(i.worldNormal, float3(0, 1, 0));
 
@@ -172,7 +172,7 @@ void main() {
 
 
     vec2 modifiedUv = fract(fakeUv + vec2(uTime/20.0, uTime/20.0));
-    vec4 texture = texture2D(graffitiTexture, newFakeUv + 0.2 * cnoise(vec4(newFakeUv*10.0, uTime/100.0, 0.0), vec4(5.0)));
+    vec4 texture = texture2D(graffitiTexture, newFakeUv + 0.2 * cnoise(vec4(newFakeUv*10.0, uTime/(30.0 + sin(cameraPos.x * 1.) * 30.0), 0.0), vec4(5.0)));
     // vec4 texture = texture2D(graffitiTexture, newFakeUv + 0.2);
 
     // gl_FragColor = vec4(modifiedUv,0.0,1.0);
