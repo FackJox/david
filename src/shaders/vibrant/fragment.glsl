@@ -181,7 +181,7 @@ void main() {
     // gl_FragColor = vec4(vNormal,1.0);
     // gl_FragColor = vec4(  // vec2 fakeUv = vec2(dot(vec3(1.0),vNormal), dot(vec3(-1.0,0.0,1.0),vNormal));
     // gl_FragColor = vec4((fresnel));
-    gl_FragColor = vec4(mix( vec4(diffuse, 1.0) * vec4( mix(vec3(1.0),texture.rgb, 1.0 ), 1.0), vec4( mix(vec3(1.0),texture.rgb, 1.0 ), 1.0), 1.0 * sin(uTime/5.0+1.0)));
-    gl_FragColor = vec4(mix( vec4(diffuse, 1.0) * vec4( mix(vec3(1.0),texture.rgb, 1.0 ), 1.0), vec4( mix(vec3(1.0),texture.rgb, 1.0 ), 1.0), 1.0 * sin(uTime/5.0+1.0)));
-    // gl_FragColor = vec4(diffuse, 1.0) * (texture * 2.0);
+    // gl_FragColor = vec4(mix( vec4(diffuse, 1.0) * vec4( mix(vec3(1.0),texture.rgb, 1.0 ), 1.0), vec4( mix(vec3(1.0),texture.rgb, 1.0 ), 1.0), 1.0 * sin(uTime/5.0+1.0)));
+    gl_FragColor = vec4(1.0 -diffuse, 0.8) * vec4( mix(vec3(1.0),texture.rgb, 1.0 ), 1.0);
+    gl_FragColor = vec4( mix(vec3(1.0),texture.rgb, 1.0 ), 1.0);
 } 
